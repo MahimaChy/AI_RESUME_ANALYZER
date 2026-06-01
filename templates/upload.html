@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Career Agent - Upload Resume</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+
+    <header class="header">
+      <h1>AI Career Agent</h1>
+      <p>Upload your resume to start a personalized interview</p>
+    </header>
+
+    <!-- Step 1: Upload resume -->
+    <div class="card">
+      <label class="upload-area" for="resume-input">
+        <div class="upload-icon">📄</div>
+        <div><strong>Click to upload resume</strong></div>
+        <div class="upload-text">PDF files only</div>
+        <input type="file" id="resume-input" accept=".pdf">
+      </label>
+
+      <div class="alert alert-success" id="upload-success" style="margin-top: 16px; display: none;">
+        ✓ <span id="file-name"></span> uploaded successfully
+      </div>
+
+      <div class="alert alert-warning" id="loading-msg" style="margin-top: 16px; display: none;"></div>
+      <div class="alert" id="error-msg" style="margin-top: 16px; display: none; background:#fee2e2; color:#991b1b;"></div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="analyze-btn" disabled>Analyze Resume</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Show extracted profile -->
+    <div class="card" id="profile-card" style="display: none;">
+      <h2 style="margin-bottom: 16px;">📄 Candidate Profile</h2>
+
+      <p><strong>Role:</strong> <span id="p-role">—</span></p>
+      <p style="margin-top: 8px;"><strong>Summary:</strong> <span id="p-summary">—</span></p>
+
+      <p style="margin-top: 16px;"><strong>Top 5 Skills & Experience:</strong></p>
+      <p class="upload-text" style="margin-bottom: 8px;">
+        Each interview question will be tailored to this experience.
+      </p>
+      <div class="skill-rows" id="p-skills"></div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="start-btn">🎤 Start Interview</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='upload.js') }}"></script>
+</body>
+</html>

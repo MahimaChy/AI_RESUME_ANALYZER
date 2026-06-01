@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Career Agent - Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+
+    <header class="header">
+      <h1>AI Career Agent</h1>
+      <p>Your interview results</p>
+    </header>
+
+    <!-- Total score card -->
+    <div class="card score-card">
+      <div class="metric-label">Total Score</div>
+      <div class="score-value" id="total-score">0 / 0</div>
+      <div id="score-msg">Review your answers below.</div>
+    </div>
+
+    <!-- Result items get rendered here -->
+    <div id="results-list"></div>
+
+    <div class="btn-row" style="justify-content: center;">
+      <button class="btn btn-primary" id="restart-btn">🔄 Start Over</button>
+    </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='results.js') }}"></script>
+</body>
+</html>
